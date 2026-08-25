@@ -1,0 +1,392 @@
+{% extends "base.html" %}
+
+{% block title %}
+AutoCare | Book Service
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <div class="eyebrow light">
+            ONLINE BOOKING
+        </div>
+
+        <h1>
+            Book your car service.
+        </h1>
+
+        <p>
+            Tell us about your vehicle and choose
+            a convenient service date.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section booking-section">
+
+    <div class="container booking-grid">
+
+
+        <div class="booking-info">
+
+            <div class="eyebrow">
+                SIMPLE & CONVENIENT
+            </div>
+
+            <h2>
+                Your next service
+                starts here.
+            </h2>
+
+            <p>
+                Fill in the details and our service
+                team will confirm your appointment.
+            </p>
+
+
+            <div class="booking-benefit">
+
+                <span>✓</span>
+
+                <div>
+
+                    <strong>
+                        Quick Booking
+                    </strong>
+
+                    <p>
+                        Book your appointment in minutes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="booking-benefit">
+
+                <span>✓</span>
+
+                <div>
+
+                    <strong>
+                        Transparent Pricing
+                    </strong>
+
+                    <p>
+                        No hidden charges.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="booking-benefit">
+
+                <span>✓</span>
+
+                <div>
+
+                    <strong>
+                        Expert Technicians
+                    </strong>
+
+                    <p>
+                        Your car is in experienced hands.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="booking-form-card">
+
+            <div class="form-header">
+
+                <h2>
+                    Service Details
+                </h2>
+
+                <span>
+                    Step 1 of 1
+                </span>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('book_service') }}"
+            >
+
+
+                <div class="form-row">
+
+                    <div>
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="+91 98765 43210"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+
+                <div class="form-row">
+
+                    <div>
+
+                        <label>
+                            Car Brand
+                        </label>
+
+                        <select name="brand" required>
+
+                            <option value="">
+                                Select brand
+                            </option>
+
+                            <option>
+                                Hyundai
+                            </option>
+
+                            <option>
+                                Honda
+                            </option>
+
+                            <option>
+                                Toyota
+                            </option>
+
+                            <option>
+                                Maruti Suzuki
+                            </option>
+
+                            <option>
+                                Tata
+                            </option>
+
+                            <option>
+                                Mahindra
+                            </option>
+
+                            <option>
+                                Kia
+                            </option>
+
+                            <option>
+                                Volkswagen
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Car Model
+                        </label>
+
+                        <input
+                            type="text"
+                            name="model"
+                            placeholder="e.g. Creta"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <label>
+                    Vehicle Number
+                </label>
+
+                <input
+                    type="text"
+                    name="vehicle_number"
+                    placeholder="e.g. TN01AB1234"
+                    required
+                >
+
+
+                <label>
+                    Select Service
+                </label>
+
+                <select
+                    name="service"
+                    required
+                >
+
+                    <option value="">
+                        Choose a service
+                    </option>
+
+                    <option>
+                        General Service — ₹2,500
+                    </option>
+
+                    <option>
+                        Oil Change — ₹1,200
+                    </option>
+
+                    <option>
+                        Brake Service — ₹1,800
+                    </option>
+
+                    <option>
+                        AC Service — ₹1,500
+                    </option>
+
+                    <option>
+                        Car Detailing — ₹2,000
+                    </option>
+
+                </select>
+
+
+                <div class="form-row">
+
+                    <div>
+
+                        <label>
+                            Preferred Date
+                        </label>
+
+                        <input
+                            type="date"
+                            name="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Preferred Time
+                        </label>
+
+                        <select name="time">
+
+                            <option>
+                                09:00 AM
+                            </option>
+
+                            <option>
+                                11:00 AM
+                            </option>
+
+                            <option>
+                                01:00 PM
+                            </option>
+
+                            <option>
+                                03:00 PM
+                            </option>
+
+                            <option>
+                                05:00 PM
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <label>
+                    Additional Details
+                </label>
+
+                <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Tell us about any issues with your car..."
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary full-btn"
+                >
+                    Confirm Service Booking →
+                </button>
+
+
+                <small class="form-note">
+                    By booking, you agree to our
+                    service terms and conditions.
+                </small>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}

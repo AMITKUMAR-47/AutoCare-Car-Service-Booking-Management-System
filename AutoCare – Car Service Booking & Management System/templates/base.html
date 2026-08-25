@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}AutoCare{% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="Professional car service booking and vehicle maintenance."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="{{ url_for('home') }}" class="logo">
+
+            <span class="logo-icon">A</span>
+
+            <span>
+                Auto<span>Care</span>
+            </span>
+
+        </a>
+
+
+        <nav class="nav-menu">
+
+            <a
+                href="{{ url_for('home') }}"
+                class="{% if request.endpoint == 'home' %}active{% endif %}"
+            >
+                Home
+            </a>
+
+            <a
+                href="{{ url_for('services') }}"
+                class="{% if request.endpoint == 'services' %}active{% endif %}"
+            >
+                Services
+            </a>
+
+            <a
+                href="{{ url_for('about') }}"
+                class="{% if request.endpoint == 'about' %}active{% endif %}"
+            >
+                About
+            </a>
+
+            <a
+                href="{{ url_for('contact') }}"
+                class="{% if request.endpoint == 'contact' %}active{% endif %}"
+            >
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="{{ url_for('login') }}"
+                class="login-link"
+            >
+                Login
+            </a>
+
+            <a
+                href="{{ url_for('book_service') }}"
+                class="nav-btn"
+            >
+                Book Service
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <button class="mobile-menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- PAGE CONTENT -->
+
+<main>
+
+    {% block content %}
+
+    {% endblock %}
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="{{ url_for('home') }}" class="logo footer-logo">
+
+                <span class="logo-icon">A</span>
+
+                <span>
+                    Auto<span>Care</span>
+                </span>
+
+            </a>
+
+            <p>
+                Professional car care made simple.
+                Reliable service, transparent pricing
+                and quality you can trust.
+            </p>
+
+
+            <div class="social-links">
+
+                <a href="#">f</a>
+
+                <a href="#">in</a>
+
+                <a href="#">◎</a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h4>Company</h4>
+
+            <a href="{{ url_for('about') }}">
+                About Us
+            </a>
+
+            <a href="{{ url_for('services') }}">
+                Services
+            </a>
+
+            <a href="{{ url_for('contact') }}">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Services</h4>
+
+            <a href="{{ url_for('services') }}">
+                General Service
+            </a>
+
+            <a href="{{ url_for('services') }}">
+                Oil Change
+            </a>
+
+            <a href="{{ url_for('services') }}">
+                Brake Service
+            </a>
+
+            <a href="{{ url_for('services') }}">
+                AC Service
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Contact</h4>
+
+            <p>📍 Chennai, India</p>
+
+            <p>☎ +91 98765 43210</p>
+
+            <p>✉ support@autocare.com</p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <p>
+                © 2026 AutoCare. All rights reserved.
+            </p>
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='js/script.js') }}"
+></script>
+
+
+</body>
+
+</html>

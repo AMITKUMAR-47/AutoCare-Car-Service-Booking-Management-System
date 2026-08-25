@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block title %}
+AutoCare | Contact
+{% endblock %}
+
+
+{% block content %}
+
+<!-- PAGE HERO -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <div class="eyebrow light">
+            GET IN TOUCH
+        </div>
+
+        <h1>
+            We're here to help.
+        </h1>
+
+        <p>
+            Have a question about your vehicle?
+            Contact our team.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+
+<section class="section">
+
+    <div class="container contact-grid">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+            <div class="eyebrow">
+                CONTACT US
+            </div>
+
+            <h2>
+                Let's talk about your car.
+            </h2>
+
+            <p>
+                Whether you need a service,
+                have a question or need assistance
+                with a booking, we're happy to help.
+            </p>
+
+
+            <!-- ADDRESS -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <strong>
+                        Visit Us
+                    </strong>
+
+                    <p>
+                        24 Anna Salai,
+                        Chennai, Tamil Nadu
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ☎
+                </div>
+
+                <div>
+
+                    <strong>
+                        Call Us
+                    </strong>
+
+                    <p>
+                        +91 98765 43210
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <div>
+
+                    <strong>
+                        Email Us
+                    </strong>
+
+                    <p>
+                        support@autocare.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="form-card">
+
+            <h2>
+                Send us a message
+            </h2>
+
+            <p>
+                We'll get back to you as soon as possible.
+            </p>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('contact') }}"
+            >
+
+
+                <!-- NAME + EMAIL -->
+
+                <div class="form-row">
+
+                    <div>
+
+                        <label for="name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="+91 98765 43210"
+                >
+
+
+                <!-- MESSAGE -->
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="How can we help?"
+                    required
+                ></textarea>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Send Message →
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,590 @@
+{% extends "base.html" %}
+
+{% block title %}
+AutoCare | Car Service Made Simple
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span></span>
+                TRUSTED CAR CARE
+            </div>
+
+
+            <h1>
+                Your car deserves
+                <span>better care.</span>
+            </h1>
+
+
+            <p>
+                Professional car servicing with
+                transparent pricing, skilled technicians
+                and convenient online booking.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="{{ url_for('book_service') }}"
+                    class="btn btn-primary"
+                >
+                    Book a Service
+                    <span>→</span>
+                </a>
+
+
+                <a
+                    href="{{ url_for('services') }}"
+                    class="btn btn-outline"
+                >
+                    Explore Services
+                </a>
+
+            </div>
+
+
+            <div class="hero-trust">
+
+                <div class="avatar-stack">
+
+                    <span>AK</span>
+                    <span>RM</span>
+                    <span>JS</span>
+                    <span>+</span>
+
+                </div>
+
+                <div>
+
+                    <strong>2,500+</strong>
+
+                    <small>
+                        Happy customers
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="{{ url_for('static', filename='images/hero.png') }}"
+                alt="Professional car service"
+            >
+
+
+            <div class="floating-card service-floating">
+
+                <div class="floating-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Quality Service
+                    </strong>
+
+                    <small>
+                        Certified technicians
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card rating-floating">
+
+                <strong>
+                    4.9
+                </strong>
+
+                <span>
+                    ★★★★★
+                </span>
+
+                <small>
+                    Customer rating
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+    <div class="container stats-grid">
+
+
+        <div class="stat">
+
+            <strong>2,500+</strong>
+
+            <span>
+                Cars Serviced
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>4.9/5</strong>
+
+            <span>
+                Customer Rating
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>8+</strong>
+
+            <span>
+                Years Experience
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>25+</strong>
+
+            <span>
+                Expert Technicians
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    WHAT WE DO
+                </div>
+
+                <h2>
+                    Everything your car needs.
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('services') }}"
+                class="text-link"
+            >
+                View all services →
+            </a>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <div class="service-card">
+
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='images/service-general.png'
+                    ) }}"
+                    alt="General service"
+                >
+
+                <div class="service-card-content">
+
+                    <span class="service-number">
+                        01
+                    </span>
+
+                    <h3>
+                        General Service
+                    </h3>
+
+                    <p>
+                        Complete inspection and
+                        routine maintenance for
+                        your vehicle.
+                    </p>
+
+                    <a href="{{ url_for('book_service') }}">
+                        Book now →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='images/service-oil.png'
+                    ) }}"
+                    alt="Oil change"
+                >
+
+                <div class="service-card-content">
+
+                    <span class="service-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Oil Change
+                    </h3>
+
+                    <p>
+                        Keep your engine running
+                        smoothly with quality oil
+                        and filter replacement.
+                    </p>
+
+                    <a href="{{ url_for('book_service') }}">
+                        Book now →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='images/service-brake.png'
+                    ) }}"
+                    alt="Brake service"
+                >
+
+                <div class="service-card-content">
+
+                    <span class="service-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Brake Service
+                    </h3>
+
+                    <p>
+                        Professional brake inspection
+                        and maintenance for safer
+                        driving.
+                    </p>
+
+                    <a href="{{ url_for('book_service') }}">
+                        Book now →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY US -->
+
+<section class="why-section">
+
+    <div class="container why-grid">
+
+
+        <div class="why-image">
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/service-detailing.png'
+                ) }}"
+                alt="AutoCare technician"
+            >
+
+        </div>
+
+
+        <div class="why-content">
+
+            <div class="eyebrow">
+                WHY AUTOCARE
+            </div>
+
+            <h2>
+                Service you can trust.
+            </h2>
+
+            <p>
+                We combine experienced technicians,
+                modern equipment and honest pricing
+                to give your vehicle the care it deserves.
+            </p>
+
+
+            <div class="feature-list">
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Experienced Technicians
+                        </h3>
+
+                        <p>
+                            Skilled professionals who
+                            understand your vehicle.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Transparent Pricing
+                        </h3>
+
+                        <p>
+                            No hidden charges. Know what
+                            you're paying for.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Quality Guaranteed
+                        </h3>
+
+                        <p>
+                            We don't compromise on
+                            service quality.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <a
+                href="{{ url_for('about') }}"
+                class="btn btn-dark"
+            >
+                Learn More About Us
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="center-heading">
+
+            <div class="eyebrow">
+                HOW IT WORKS
+            </div>
+
+            <h2>
+                Service in three simple steps.
+            </h2>
+
+            <p>
+                Getting your car serviced has never
+                been easier.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Choose a Service
+                </h3>
+
+                <p>
+                    Select the service your vehicle needs
+                    from our range of options.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Pick a Date
+                </h3>
+
+                <p>
+                    Choose a convenient date and
+                    provide your vehicle details.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Get It Serviced
+                </h3>
+
+                <p>
+                    Bring your car to our service center
+                    and let our experts handle the rest.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta-section">
+
+    <div class="container cta-content">
+
+        <div>
+
+            <div class="eyebrow light">
+                READY WHEN YOU ARE
+            </div>
+
+            <h2>
+                Give your car the care it deserves.
+            </h2>
+
+            <p>
+                Book your next service in just a few clicks.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('book_service') }}"
+            class="btn btn-white"
+        >
+            Book a Service →
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

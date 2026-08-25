@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AutoCare | Admin Dashboard
+    </title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/style.css'
+        ) }}"
+    >
+
+</head>
+
+
+<body class="admin-body">
+
+
+<!-- ADMIN HEADER -->
+
+<header class="admin-header">
+
+    <div class="admin-header-inner">
+
+
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+        >
+
+            <span class="logo-icon">
+                A
+            </span>
+
+            <span>
+                Auto<span>Care</span>
+            </span>
+
+        </a>
+
+
+        <div class="admin-title">
+
+            <span>
+                ADMIN DASHBOARD
+            </span>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('home') }}"
+            class="admin-home"
+        >
+            ← Back to Website
+        </a>
+
+
+    </div>
+
+</header>
+
+
+<!-- ADMIN CONTENT -->
+
+<main class="admin-main">
+
+    <div class="admin-container">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="admin-page-heading">
+
+            <div>
+
+                <div class="eyebrow">
+                    OVERVIEW
+                </div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Manage your service bookings
+                    and customer messages.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STAT CARDS -->
+
+        <div class="admin-stats">
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon">
+                    🚗
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Bookings
+                    </span>
+
+                    <strong>
+                        {{ bookings|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon pending-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <span>
+                        Pending Bookings
+                    </span>
+
+                    <strong>
+
+                        {{ bookings
+                           |selectattr(
+                               "status",
+                               "equalto",
+                               "Pending"
+                           )
+                           |list
+                           |length
+                        }}
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon message-icon">
+                    ✉
+                </div>
+
+                <div>
+
+                    <span>
+                        Messages
+                    </span>
+
+                    <strong>
+                        {{ messages|length }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon customer-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <span>
+                        Service Types
+                    </span>
+
+                    <strong>
+                        5
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BOOKINGS -->
+
+        <section class="admin-section">
+
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <h2>
+                        Recent Service Bookings
+                    </h2>
+
+                    <p>
+                        Customer service appointments
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="{{ url_for('book_service') }}"
+                    class="btn btn-primary"
+                >
+                    + New Booking
+                </a>
+
+            </div>
+
+
+            {% if bookings %}
+
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Vehicle
+                            </th>
+
+                            <th>
+                                Service
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        {% for booking in bookings %}
+
+
+                        <tr>
+
+
+                            <td>
+
+                                <span class="booking-id">
+                                    #{{ booking.id }}
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-cell">
+
+                                    <div class="customer-avatar">
+
+                                        {{ booking.name[0]|upper }}
+
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            {{ booking.name }}
+                                        </strong>
+
+                                        <small>
+                                            {{ booking.email }}
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    {{ booking.brand }}
+                                </strong>
+
+                                <small class="table-small">
+
+                                    {{ booking.model }}
+
+                                    ·
+
+                                    {{ booking.vehicle_number }}
+
+                                </small>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="service-pill">
+
+                                    {{ booking.service }}
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+
+                                    {{ booking.booking_date.strftime('%d %b %Y') }}
+
+                                </strong>
+
+                                <small class="table-small">
+
+                                    {{ booking.booking_time }}
+
+                                </small>
+
+                            </td>
+
+
+                            <td>
+
+
+                                {% if booking.status == "Pending" %}
+
+                                    <span class="status confirmed">
+                                        Pending
+                                    </span>
+
+                                {% elif booking.status == "Completed" %}
+
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="status">
+                                        {{ booking.status }}
+                                    </span>
+
+                                {% endif %}
+
+
+                            </td>
+
+
+                        </tr>
+
+
+                        {% endfor %}
+
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="admin-empty">
+
+                <div>
+                    🚗
+                </div>
+
+                <h3>
+                    No bookings yet
+                </h3>
+
+                <p>
+                    Service bookings will appear here.
+                </p>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </section>
+
+
+        <!-- CONTACT MESSAGES -->
+
+        <section class="admin-section">
+
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <h2>
+                        Customer Messages
+                    </h2>
+
+                    <p>
+                        Recent messages from customers
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% if messages %}
+
+
+            <div class="message-list">
+
+
+                {% for message in messages %}
+
+
+                <div class="admin-message">
+
+
+                    <div class="message-avatar">
+
+                        {{ message.name[0]|upper }}
+
+                    </div>
+
+
+                    <div class="message-content">
+
+
+                        <div class="message-top">
+
+                            <div>
+
+                                <strong>
+                                    {{ message.name }}
+                                </strong>
+
+                                <span>
+                                    {{ message.email }}
+                                </span>
+
+                            </div>
+
+
+                            <small>
+
+                                {{ message.created_at.strftime('%d %b %Y') }}
+
+                            </small>
+
+                        </div>
+
+
+                        <p>
+                            {{ message.message }}
+                        </p>
+
+
+                        {% if message.phone %}
+
+                        <span class="message-phone">
+
+                            ☎ {{ message.phone }}
+
+                        </span>
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="admin-empty">
+
+                <div>
+                    ✉
+                </div>
+
+                <h3>
+                    No messages yet
+                </h3>
+
+                <p>
+                    Customer messages will appear here.
+                </p>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+</body>
+
+</html>

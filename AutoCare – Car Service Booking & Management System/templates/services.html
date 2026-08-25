@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block title %}
+AutoCare | Our Services
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <div class="eyebrow light">
+            OUR SERVICES
+        </div>
+
+        <h1>
+            Complete care for
+            every journey.
+        </h1>
+
+        <p>
+            From routine maintenance to major repairs,
+            our team keeps your vehicle performing at
+            its best.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="service-list">
+
+
+            <div class="large-service-card">
+
+                <div class="large-service-image">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/service-general.png'
+                        ) }}"
+                        alt="General service"
+                    >
+
+                </div>
+
+
+                <div class="large-service-content">
+
+                    <span class="service-tag">
+                        MOST POPULAR
+                    </span>
+
+                    <h2>
+                        General Service
+                    </h2>
+
+                    <p>
+                        A complete health check for your
+                        vehicle including engine inspection,
+                        fluid checks, tyre inspection and
+                        essential maintenance.
+                    </p>
+
+
+                    <ul>
+
+                        <li>✓ Full vehicle inspection</li>
+                        <li>✓ Engine oil check</li>
+                        <li>✓ Brake inspection</li>
+                        <li>✓ Tyre inspection</li>
+
+                    </ul>
+
+
+                    <div class="service-price">
+
+                        <strong>
+                            ₹2,500
+                        </strong>
+
+                        <span>
+                            Starting price
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="{{ url_for('book_service') }}"
+                        class="btn btn-primary"
+                    >
+                        Book This Service →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-list-grid">
+
+
+                <div class="service-detail-card">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/service-oil.png'
+                        ) }}"
+                        alt="Oil change"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Oil Change
+                        </h3>
+
+                        <p>
+                            Engine oil and filter replacement
+                            for smoother performance.
+                        </p>
+
+                        <strong>
+                            ₹1,200
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-detail-card">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/service-brake.png'
+                        ) }}"
+                        alt="Brake service"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Brake Service
+                        </h3>
+
+                        <p>
+                            Complete brake inspection and
+                            maintenance.
+                        </p>
+
+                        <strong>
+                            ₹1,800
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-detail-card">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/service-ac.png'
+                        ) }}"
+                        alt="AC service"
+                    >
+
+                    <div>
+
+                        <h3>
+                            AC Service
+                        </h3>
+
+                        <p>
+                            Keep your car cool and comfortable
+                            all year round.
+                        </p>
+
+                        <strong>
+                            ₹1,500
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-detail-card">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='images/service-detailing.png'
+                        ) }}"
+                        alt="Car detailing"
+                    >
+
+                    <div>
+
+                        <h3>
+                            Car Detailing
+                        </h3>
+
+                        <p>
+                            Deep cleaning and professional
+                            interior and exterior care.
+                        </p>
+
+                        <strong>
+                            ₹2,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="cta-section">
+
+    <div class="container cta-content">
+
+        <div>
+
+            <div class="eyebrow light">
+                NEED A SERVICE?
+            </div>
+
+            <h2>
+                We'll take care of your car.
+            </h2>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('book_service') }}"
+            class="btn btn-white"
+        >
+            Book Now →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

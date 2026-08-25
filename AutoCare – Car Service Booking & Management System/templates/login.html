@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}
+AutoCare | Login
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-page">
+
+    <div class="auth-wrapper">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-brand">
+
+            <div class="auth-brand-logo">
+                A
+            </div>
+
+            <div class="auth-brand-content">
+
+                <div class="auth-small-title">
+                    AUTOCARE SERVICE CENTER
+                </div>
+
+                <h1>
+                    Your car deserves
+                    <span>better care.</span>
+                </h1>
+
+                <p>
+                    Professional vehicle service,
+                    trusted technicians and simple
+                    online booking — all in one place.
+                </p>
+
+                <div class="auth-features">
+
+                    <div>
+                        <span>✓</span>
+                        Trusted service
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Easy service booking
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Professional technicians
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-form-panel">
+
+            <div class="auth-form-content">
+
+                <div class="auth-form-logo">
+                    A
+                </div>
+
+                <div class="auth-eyebrow">
+                    WELCOME BACK
+                </div>
+
+                <h2>
+                    Login to AutoCare
+                </h2>
+
+                <p class="auth-description">
+                    Access your service bookings and
+                    manage your vehicle appointments.
+                </p>
+
+
+                <!-- FLASH MESSAGES -->
+
+                {% with messages = get_flashed_messages(
+                    with_categories=true
+                ) %}
+
+                    {% if messages %}
+
+                        {% for category, message in messages %}
+
+                            <div class="auth-alert {{ category }}">
+                                {{ message }}
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                {% endwith %}
+
+
+                <!-- LOGIN FORM -->
+
+                <form
+                    method="POST"
+                    action="{{ url_for('login') }}"
+                    class="auth-form"
+                >
+
+                    <div class="auth-field">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="auth-field">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Login
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+
+                <div class="auth-switch">
+
+                    Don't have an account?
+
+                    <a href="{{ url_for('register') }}">
+                        Create Account
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
